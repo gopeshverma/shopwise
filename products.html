@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products - ShopWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">ShopWise</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="login.html">Login</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Featured Products</h2>
+    <div class="products">
+      <div class="product">
+        <h3>Wireless Mouse</h3>
+        <p>₹499</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+      <div class="product">
+        <h3>Bluetooth Headphones</h3>
+        <p>₹1,199</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+      <div class="product">
+        <h3>USB Keyboard</h3>
+        <p>₹699</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ShopWise. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let count = parseInt(localStorage.getItem("cartCount")) || 0;
+    function addToCart() {
+      count++;
+      localStorage.setItem("cartCount", count);
+      document.getElementById("cart-count").innerText = count;
+    }
+    document.getElementById("cart-count").innerText = count;
+  </script>
+</body>
+</html>
+</html>

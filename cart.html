@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart - ShopWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">ShopWise</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="login.html">Login</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Your Cart</h2>
+    <p>You have <span id="items"></span> item(s) in your cart.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ShopWise. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const count = localStorage.getItem("cartCount") || 0;
+    document.getElementById("cart-count").innerText = count;
+    document.getElementById("items").innerText = count;
+  </script>
+</body>
+</html>

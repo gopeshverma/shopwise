@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopWise - Product Recommendation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="user-logo.png" alt="User Logo" class="user-logo" onclick="window.location.href='login.html'">
+      <div class="logo">ShopWise</div>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search products...">
+      <button onclick="searchProduct()">Search</button>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <h1>Welcome to ShopWise</h1>
+      <p>Get personalized product recommendations based on your shopping behavior.</p>
+    </section>
+    <section class="products-section">
+      <h2>Featured Products</h2>
+      <div class="product-list">
+        <div class="product-card">
+          <img src="product1.jpg" alt="Product 1">
+          <h3>Wireless Headphones</h3>
+          <p>Price: ₹1,999</p>
+          <button onclick="window.location.href='product1.html'">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="product2.jpg" alt="Product 2">
+          <h3>Smartwatch</h3>
+          <p>Price: ₹3,499</p>
+          <button onclick="window.location.href='product2.html'">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="product3.jpg" alt="Product 3">
+          <h3>Bluetooth Speaker</h3>
+          <p>Price: ₹999</p>
+          <button onclick="window.location.href='product3.html'">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+    <section class="products-section">
+      <h2>Recommended for You</h2>
+      <div class="product-list">
+        <div class="product-card">
+          <img src="product4.jpg" alt="Product 4">
+          <h3>Power Bank</h3>
+          <p class="subtitle">Based on your recent views</p>
+          <button onclick="window.location.href='product4.html'">View</button>
+        </div>
+        <div class="product-card">
+          <img src="product5.jpg" alt="Product 5">
+          <h3>USB Type-C Cable</h3>
+          <p class="subtitle">Popular with similar users</p>
+          <button onclick="window.location.href='product5.html'">View</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 ShopWise. All rights reserved.</p>
+  </footer>
+  <script>
+    function updateCartCount() {
+      const cartCount = localStorage.getItem("cartCount") || 0;
+      document.getElementById("cart-count").innerText = cartCount;
+    }
+    window.addEventListener("DOMContentLoaded", updateCartCount);
+
+    function searchProduct() {
+      const query = document.getElementById("search-input").value.trim();
+      if (query) {
+        window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+      } else {
+        alert("Please enter a product name to search.");
+      }
+    }
+  </script>
+</body>
+</html>

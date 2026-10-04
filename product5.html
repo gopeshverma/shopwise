@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>USB Type-C Cable - ShopWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="user-logo.png" alt="User Logo" class="user-logo" onclick="window.location.href='login.html'">
+      <div class="logo">ShopWise</div>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search products...">
+      <button onclick="searchProduct()">Search</button>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main style="text-align: center; padding: 2em;">
+    <img src="product5.jpg" alt="USB Type-C Cable" style="width: 300px; height: auto;">
+    <h1>USB Type-C Cable</h1>
+    <p>Price: ₹299</p>
+    <p>Durable and fast-charging USB Type-C cable compatible with all major smartphones and laptops.</p>
+    <button onclick="addToCart()">Add to Cart</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ShopWise. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updateCartCount() {
+      const cartCount = localStorage.getItem("cartCount") || 0;
+      document.getElementById("cart-count").innerText = cartCount;
+    }
+    function addToCart() {
+      let count = parseInt(localStorage.getItem("cartCount") || 0);
+      localStorage.setItem("cartCount", count + 1);
+      updateCartCount();
+      alert("USB Type-C Cable added to cart!");
+    }
+    window.addEventListener("DOMContentLoaded", updateCartCount);
+    function searchProduct() {
+      const query = document.getElementById("search-input").value.trim();
+      if (query) {
+        window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+      } else {
+        alert("Please enter a product name to search.");
+      }
+    }
+  </script>
+</body>
+</html>
